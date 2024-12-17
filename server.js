@@ -16,7 +16,7 @@ const swaggerOptions = {
       },
       servers: [
         {
-          url: 'http://localhost:8000',
+          url: 'https://taks-management-apis.onrender.com',
         },
       ],
     },
@@ -35,6 +35,7 @@ app.use(bodyParser.json());
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Routes
+app.get('/', (req, res) => res.send('Task Manager API is running'));
 app.use('/auth', require('./routes/authRoutes'));
 app.use('/tasks', require('./routes/taskRoutes'));
 
